@@ -1,0 +1,30 @@
+{
+  "name": "api-web",
+  "version": "1.0.0",
+  "description": "Apirest para la aplicacion web cuarto b",
+  "main": "index.js",
+  "scripts": {
+    "test": "express,mongoose",
+    "start": "babel-node index.js",
+    "dev": "nodemon --exec babel-node index.js"
+  },
+  "keywords": [
+    "server",
+    "pragraming",
+    "fuction",
+    "connectionbd",
+    "http"
+  ],
+  "author": "Danycambrano",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.23.9",
+    "@babel/core": "^7.23.9",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "express": "^4.18.2",
+    "express-promise-router": "^4.1.1",
+    "mongoose": "^8.1.3",
+    "nodemon": "^3.0.3"
+  }
+}
