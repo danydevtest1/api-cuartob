@@ -2,11 +2,18 @@ import models from '../models'
 
 export default{
 
-    postPersona:(req,res,next)=>{
+    postPersona:async (req,res,next)=>{
         try {
-           res.status(200).send({
-            message:"Datos enviados"
-           })
+          const {nombre,apellidos, correo}=req.body;
+
+          const guardar=new models.Persona({
+            nombre,apellidos,correo
+        });
+
+          const enviar= await guardar.save();
+
+           res.status(200).json(enviar);
+          
             
         } catch (error) {
             res.status(500).send({
@@ -16,10 +23,15 @@ export default{
         }
     },
    // delPersona(req,res,next)=>{},
-    getPersona:(req,res,next)=>{
-        res.status(200).send({
-            message:"Datos encontrados"
+    getPersona:async (req,res,next)=>{
+       try {
+        const buscar= await models.Persona.find();
+        res.status(200).json(buscar);
+       } catch (error) {
+        res.status(500).send({
+            message:"No se obtuvo la informacion"
         })
-    },
-    //putPersona(req,res,next)=>{}
-}
+        next(error);
+    }
+       }
+    }
